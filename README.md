@@ -1,11 +1,36 @@
-# conference-app
+# Salesforce Integration with LWC OSS App using OAuth Web Server Flow
 
-Here will be some information about the app.
+This repo has the sample Code for connecting to Salesforce using OAuth Web Server flow from an LWC OSS App. 
 
-## How to start?
+## About the app
 
-Start simple by running `yarn watch` (or `npm run watch`, if you set up the project with `npm`). This will start the project with a local development server.
+The basic version of the app is built using the Trailhead Project [Build Your First Application with Lightning Web Components Open Source](https://trailhead.salesforce.com/content/learn/projects/build-your-first-app-with-lightning-web-components-open-source). 
 
-The source files are located in the [`src`](./src) folder. All web components are within the [`src/client/modules`](./src/modules) folder. The folder hierarchy also represents the naming structure of the web components. The entry file for the custom Express configuration can be found in the ['src/server'](./src/server) folder.
+The Salesforce Data Model for the app is created using the first 3 units of the Trailhead Project [Access Salesforce Data with Lightning Web Components Open Source](https://trailhead.salesforce.com/content/learn/projects/access-salesforce-data-with-lightning-web-components-open-source/create-a-salesforce-environment).
 
-Find more information on the main repo on [GitHub](https://github.com/muenzpraeger/create-lwc-app).
+## Using the app
+
+1. Create a connected app in your Salesforce Org, and add http://localhost:3001/oauth2/callback to the list of Callback URLs.
+
+1. Note the Consumer Key and Consumer Secret.
+
+1. Clone this repository:
+
+    ```
+    git clone https://github.com/adityanaag3/lwc-oss-oauth
+    cd lwc-oss-oauth
+    ```
+    
+1. Create a `.env` file at the root of the project:
+
+    ```
+    SALESFORCE_LOGIN_DOMAIN='https://login.salesforce.com'
+    SALESFORCE_CLIENT_ID='YOUR_SALESFORCE_CONSUMER_KEY'
+    SALESFORCE_CLIENT_SECRET='YOUR_SALESFORCE_CONSUMER_SECRET'
+    SALESFORCE_CALLBACK_URL='http://localhost:3001/oauth2/callback'
+    NODE_SESSION_SECRET_KEY='SOME_RANDOM_SECRET_KEY'
+    ```
+    
+1. Run `npm install`
+
+1. Run `npm run watch`. This will start the project with a local development server.
