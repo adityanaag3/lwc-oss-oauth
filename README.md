@@ -1,6 +1,6 @@
-# Salesforce Integration with LWC OSS App using OAuth Web Server Flow
+# Salesforce Integration with LWC OSS using OAuth Web Server Flow
 
-This repo has the sample Code for connecting to Salesforce using OAuth Web Server flow from an LWC OSS App. 
+This repo has the sample code for connecting to Salesforce using OAuth Web Server flow from an LWC OSS App. 
 
 ## About the app
 
@@ -10,7 +10,7 @@ The Salesforce Data Model for the app is created using the first 3 units of the 
 
 ## Using the app
 
-1. Create a connected app in your Salesforce Org, and add http://localhost:3001/oauth2/callback to the list of Callback URLs.
+1. Create a connected app in your Salesforce Org, and add `http://localhost:3001/oauth2/callback` to the list of Callback URLs.
 
 1. Note the Consumer Key and Consumer Secret.
 
@@ -21,7 +21,7 @@ The Salesforce Data Model for the app is created using the first 3 units of the 
     cd lwc-oss-oauth
     ```
     
-1. Create a `.env` file at the root of the project:
+1. Create a `.env` file at the root of the project, and add the following code:
 
     ```
     SALESFORCE_LOGIN_DOMAIN='https://login.salesforce.com'
