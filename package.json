@@ -1,0 +1,76 @@
+{
+    "name": "conference-app",
+    "description": "Sample Code for connecting to Salesforce using OAuth Web Server flow from an LWC OSS App",
+    "version": "0.0.1",
+    "author": "adityanaag3",
+    "bugs": "https://github.com/adityanaag3/lwc-oss-oauth/issues",
+    "dependencies": {
+        "compression": "^1.7.4",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "helmet": "^3.22.0",
+        "jsforce": "^1.9.3",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.1.3",
+        "lwc-services": "^2.0.5",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.4"
+    },
+    "engines": {
+        "node": ">=10.13.0",
+        "npm": ">=6.4.1",
+        "yarn": ">=1.9.4"
+    },
+    "homepage": "https://github.com/adityanaag3/lwc-oss-oauth",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "keywords": [
+        "lwc"
+    ],
+    "license": "MIT",
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,ts,yaml,yml}": [
+            "prettier --write"
+        ],
+        "./src/**/*.js": [
+            "eslint"
+        ]
+    },
+    "nodemonConfig": {
+        "watch": [
+            "src/server/**/*.js"
+        ],
+        "ext": "js",
+        "ignore": [
+            "src/**/*.spec.js",
+            "src/**/*.test.js"
+        ],
+        "exec": "node ./src/server/api.js"
+    },
+    "repository": "adityanaag3/lwc-oss-oauth",
+    "scripts": {
+        "build": "lwc-services build -m production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "serve": "run-p serve:client serve:api",
+        "serve:api": "node src/server/api.js",
+        "serve:client": "node scripts/server.js",
+        "test:unit": "lwc-services test:unit",
+        "test:unit:coverage": "lwc-services test:unit --coverage",
+        "test:unit:debug": "lwc-services test:unit --debug",
+        "test:unit:watch": "lwc-services test:unit --watch",
+        "watch": "run-p watch:client watch:server",
+        "watch:client": "lwc-services watch",
+        "watch:server": "nodemon"
+    }
+}

@@ -1,0 +1,23 @@
+<template>
+    <header>
+        <img src="resources/lwc.png" alt="App logo" />
+        <h2>Lightning Conference</h2>
+        <div class="actions">
+            <template if:true={loggedUser}>
+                <span class="user-display-name">{loggedUser.display_name}</span>
+                <br />
+                <button type="button" class="brand" onclick={handleLogout}>
+                    Log Out
+                </button>
+            </template>
+        </div>
+    </header>
+    <main class="content">
+        <template if:true={isLoginView}>
+            <my-login-view></my-login-view>
+        </template>
+        <template if:true={isSessionListView}>
+            <my-session-list></my-session-list>
+        </template>
+    </main>
+</template>

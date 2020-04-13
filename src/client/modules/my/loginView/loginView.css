@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.login-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #212529;
+}
+
+.brand-button {
+    text-decoration: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    transition: border 0.15s linear;
+    background-color: #0288d1;
+    color: #fff;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-clip: border-box;
+    border: 1px solid #0288d1;
+    border-radius: 0.25rem;
+    line-height: 1.875rem;
+    -webkit-appearance: none;
+    white-space: normal;
+    user-select: none;
+}
+
+.brand-button:hover {
+    background-color: #0093e3;
+}
