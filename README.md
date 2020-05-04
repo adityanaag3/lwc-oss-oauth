@@ -8,6 +8,13 @@ The basic version of the app is built using the Trailhead Project [Build Your Fi
 
 The Salesforce Data Model for the app is created using the first 3 units of the Trailhead Project [Access Salesforce Data with Lightning Web Components Open Source](https://trailhead.salesforce.com/content/learn/projects/access-salesforce-data-with-lightning-web-components-open-source/create-a-salesforce-environment).
 
+## Logout Variations
+
+The logout functionality is implemented in 2 different ways
+
+1. Logging out of the app, doesnt log you out of your active Salesforce session. The code for this is present in the `master` branch
+1. Logging out of the app also logs you out of your active Salesforce session. The code for this is present in the `single-logout` branch.
+
 ## Using the app
 
 1. Create a connected app in your Salesforce Org, and add `http://localhost:3001/oauth2/callback` to the list of Callback URLs.
