@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import { getLoggedInUser, logOut } from 'data/authService';
+import { getLoggedInUser } from 'data/authService';
 
 export default class App extends LightningElement {
     @track loggedUser = undefined;
@@ -18,9 +18,7 @@ export default class App extends LightningElement {
     }
 
     handleLogout() {
-        // Log out and don't wait for server response
-        logOut();
-        this.state = 'login';
+        this.state = 'logout';
         this.loggedUser = undefined;
     }
 
@@ -30,5 +28,9 @@ export default class App extends LightningElement {
 
     get isSessionListView() {
         return this.state === 'list';
+    }
+
+    get isLogoutView() {
+        return this.state === 'logout';
     }
 }

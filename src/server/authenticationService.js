@@ -108,21 +108,35 @@ module.exports = class AuthenticationService {
             return;
         }
 
-        this.oauth2.revokeToken(session.sfdcAccessToken, (error) => {
+        const instanceUrl = session.sfdcInstanceUrl;
+
+        const conn = new jsforce.Connection({
+            accessToken: session.sfdcAccessToken,
+            instanceUrl: session.sfdcInstanceUrl
+        });
+
+        conn.logout((error) => {
             if (error) {
                 this.logger.error(
                     'Failed to revoke authentication token',
                     error
                 );
                 res.status(500).json(error);
+            } else {
+                session.destroy((err) => {
+                    if (err) {
+                        this.logger.error(
+                            'Failed to destroy server session',
+                            error
+                        );
+                        res.status(500).send(
+                            'Failed to destroy server session'
+                        );
+                    } else {
+                        res.send(instanceUrl + '/secur/logout.jsp');
+                    }
+                });
             }
         });
-        session.destroy((error) => {
-            if (error) {
-                this.logger.error('Failed to destroy server session', error);
-                res.status(500).send('Failed to destroy server session');
-            }
-        });
-        res.redirect('/');
     }
 };

@@ -1,0 +1,14 @@
+<template>
+    <div class="logout-wrapper">
+        <template if:true={errorMessage}>
+            {errorMessage}
+        </template>
+        <template if:false={errorMessage}>
+            {logoutStatus} <br />
+            <iframe
+                src={logoutUrl}
+                style="width: 0; height: 0; border: none;"
+            ></iframe>
+        </template>
+    </div>
+</template>
