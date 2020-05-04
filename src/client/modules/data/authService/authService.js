@@ -17,11 +17,3 @@ export function getLoggedInUser() {
             });
     });
 }
-
-/**
- * Logs the user out
- * @returns {Promise}
- */
-export function logOut() {
-    return fetch('/oauth2/logout');
-}

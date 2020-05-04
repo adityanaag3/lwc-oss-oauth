@@ -6,9 +6,11 @@
             <template if:true={loggedUser}>
                 <span class="user-display-name">{loggedUser.display_name}</span>
                 <br />
-                <button type="button" class="brand" onclick={handleLogout}>
-                    Log Out
-                </button>
+                <a href="/oauth2/logout">
+                    <button type="button" class="brand">
+                        Log Out
+                    </button>
+                </a>
             </template>
         </div>
     </header>
