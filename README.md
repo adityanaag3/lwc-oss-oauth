@@ -38,6 +38,6 @@ The logout functionality is implemented in 2 different ways
     NODE_SESSION_SECRET_KEY='SOME_RANDOM_SECRET_KEY'
     ```
 
-1. Run `npm install`
+1. Run `npm install`. (Refer to package.json for the dependencies that'll be installed)
 
 1. Run `npm run watch`. This will start the project with a local development server.
