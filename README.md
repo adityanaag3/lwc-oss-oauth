@@ -17,7 +17,10 @@ The logout functionality is implemented in 2 different ways
 
 ## Using the app
 
-1. Create a connected app in your Salesforce Org, and add `http://localhost:3001/oauth2/callback` to the list of Callback URLs.
+1. Create a connected app in your Salesforce Org
+
+    1. Add `http://localhost:3001/oauth2/callback` to the list of Callback URLs.
+    1. Add `api` to the list of Selected OAuth Scopes
 
 1. Note the Consumer Key and Consumer Secret.
 
