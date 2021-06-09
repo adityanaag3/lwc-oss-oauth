@@ -67,17 +67,19 @@ module.exports = class IntegrationService {
                 const formattedData = records.map((sessionRecord) => {
                     let speakers = [];
                     if (sessionRecord.Session_Speakers__r) {
-                        speakers = sessionRecord.Session_Speakers__r.records.map(
-                            (record) => {
-                                return {
-                                    id: record.Speaker__r.Id,
-                                    name: record.Speaker__r.Name,
-                                    email: record.Speaker__r.Email,
-                                    bio: record.Speaker__r.Description,
-                                    pictureUrl: record.Speaker__r.Picture_URL__c
-                                };
-                            }
-                        );
+                        speakers =
+                            sessionRecord.Session_Speakers__r.records.map(
+                                (record) => {
+                                    return {
+                                        id: record.Speaker__r.Id,
+                                        name: record.Speaker__r.Name,
+                                        email: record.Speaker__r.Email,
+                                        bio: record.Speaker__r.Description,
+                                        pictureUrl:
+                                            record.Speaker__r.Picture_URL__c
+                                    };
+                                }
+                            );
                     }
                     return {
                         id: sessionRecord.Id,
